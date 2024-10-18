@@ -1,0 +1,19 @@
+﻿@model List<Food>
+<h1>Menu</h1>
+<ul>
+	@foreach(Food item in Model)
+	{
+		<li>
+			<ul>
+				<li> Dish name: @item.Name</li>
+				<li> Dish weight: @(item.Weight)kg</li>
+				<li> Dish price: $@(item.Price)</li>
+			</ul>
+			<p>-------------------------------------------------------------</p>
+		</li>
+	}
+</ul>
+<form method = "get" asp-action = "AddFood">
+	<button type = "submit"> Add dish</button>
+</form>
+

@@ -1,0 +1,13 @@
+﻿@model Food
+<form method = "post" asp-action = "AddFood">
+	<label>Dish name</label>
+	<input asp-for = "Name" type = "text"/><br/>
+	<label>Dish weight</label>
+	<input asp-for="Weight" type = "number" step="0.01"/><br/>
+	<label>Dish price</label>
+	<input asp-for="Price" type="number" step="0.01" /><br />
+	<input type = "submit" value = "Add dish"/>
+</form>
+<form method="get" asp-action="GetFood">
+	<button type="submit"> Return</button>
+</form>
