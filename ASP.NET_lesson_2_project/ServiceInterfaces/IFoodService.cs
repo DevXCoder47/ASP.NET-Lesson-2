@@ -7,5 +7,7 @@ namespace ASP.NET_lesson_2_project.ServiceInterfaces
 		List<Food> Dishes { get; set; }
 		public List<Food> GetFood();
 		public void AddFood(Food dish);
+		public void UpdateFood(Food dish);
+		public void DeleteFood(int id);
 	}
 }

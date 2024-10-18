@@ -9,6 +9,8 @@
 				<li> Dish weight: @(item.Weight)kg</li>
 				<li> Dish price: $@(item.Price)</li>
 			</ul>
+			<form method="get" asp-action = "UpdateFood" asp-route-id = "@item.Id"><button type = "submit" >Edit</button></form>
+			<form method="post" asp-action = "DeleteFood" asp-route-id = "@item.Id"><button type="submit">Delete</button></form>
 			<p>-------------------------------------------------------------</p>
 		</li>
 	}

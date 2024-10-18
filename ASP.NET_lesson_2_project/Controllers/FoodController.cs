@@ -19,10 +19,16 @@ namespace ASP.NET_lesson_2_project.Controllers
 		{
 			return View();
 		}
-		public IActionResult ErrorPage(string error)
+		public IActionResult UpdateFood(int id)
 		{
-			ViewBag.ErrorMessage = error;
-			return View();
+			Food dish = Service.Dishes.First(dish => dish.Id == id);
+			return View(dish);
+		}
+		[HttpPost]
+		public IActionResult DeleteFood(int id)
+		{
+			Service.DeleteFood(id);
+			return RedirectToAction(nameof(GetFood));
 		}
 		[HttpPost]
 		public IActionResult AddFood(Food dish)
@@ -31,6 +37,19 @@ namespace ASP.NET_lesson_2_project.Controllers
 				return RedirectToAction(nameof(ErrorPage), new {error = "Invalid weight or price"});
 			Service.AddFood(dish);
 			return RedirectToAction(nameof(GetFood));
+		}
+		[HttpPost]
+		public IActionResult UpdateFood(Food dish)
+		{
+			if (dish.Weight < 0 || dish.Price < 0)
+				return RedirectToAction(nameof(ErrorPage), new { error = "Invalid weight or price" });
+			Service.UpdateFood(dish);
+			return RedirectToAction(nameof(GetFood));
+		}
+		public IActionResult ErrorPage(string error)
+		{
+			ViewBag.ErrorMessage = error;
+			return View();
 		}
 	}
 }
