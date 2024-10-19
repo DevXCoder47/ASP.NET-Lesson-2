@@ -1,6 +1,6 @@
 ﻿@model List<Food>
 <h1>Menu</h1>
-<ul>
+<ul class = "menu_list">
 	@foreach(Food item in Model)
 	{
 		<li>
@@ -9,13 +9,16 @@
 				<li> Dish weight: @(item.Weight)kg</li>
 				<li> Dish price: $@(item.Price)</li>
 			</ul>
-			<form method="get" asp-action = "UpdateFood" asp-route-id = "@item.Id"><button type = "submit" >Edit</button></form>
-			<form method="post" asp-action = "DeleteFood" asp-route-id = "@item.Id"><button type="submit">Delete</button></form>
-			<p>-------------------------------------------------------------</p>
+			<form class="action_button" method="get" asp-action = "UpdateFood" asp-route-id = "@item.Id"><button type = "submit" >Edit</button></form>
+			<form class="action_button" method="post" asp-action="DeleteFood" asp-route-id="@item.Id"><button type="submit">Delete</button></form>
+			<p>-------------------------------------</p>
 		</li>
 	}
 </ul>
 <form method = "get" asp-action = "AddFood">
 	<button type = "submit"> Add dish</button>
 </form>
+@section MenuStyles{
+	<link rel="stylesheet" href="~/css/menu_page.css" />
+}
 

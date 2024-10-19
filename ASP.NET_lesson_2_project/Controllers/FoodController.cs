@@ -33,16 +33,16 @@ namespace ASP.NET_lesson_2_project.Controllers
 		[HttpPost]
 		public IActionResult AddFood(Food dish)
 		{
-			if (dish.Weight < 0 || dish.Price < 0)
-				return RedirectToAction(nameof(ErrorPage), new {error = "Invalid weight or price"});
+			if (dish.Name == null || dish.Weight < 0 || dish.Price < 0)
+				return RedirectToAction(nameof(ErrorPage), new {error = "Invalid data"});
 			Service.AddFood(dish);
 			return RedirectToAction(nameof(GetFood));
 		}
 		[HttpPost]
 		public IActionResult UpdateFood(Food dish)
 		{
-			if (dish.Weight < 0 || dish.Price < 0)
-				return RedirectToAction(nameof(ErrorPage), new { error = "Invalid weight or price" });
+			if (dish.Name == null || dish.Weight < 0 || dish.Price < 0)
+				return RedirectToAction(nameof(ErrorPage), new { error = "Invalid data" });
 			Service.UpdateFood(dish);
 			return RedirectToAction(nameof(GetFood));
 		}

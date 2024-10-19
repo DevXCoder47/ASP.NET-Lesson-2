@@ -1,0 +1,21 @@
+﻿body {
+    background-color: aqua;
+    height: 100vh;
+}
+.form_container{
+    border: 5px solid black;
+    width: 300px;
+}
+input {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+label{
+    margin-left: 4px;
+}
+.submit_button {
+    margin-left: 4px;
+}
+button {
+    margin-top: 4px;
+}
